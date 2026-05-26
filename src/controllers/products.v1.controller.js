@@ -90,6 +90,6 @@ export const deleteData = async (req, res, next) => {
         }
         res.status(200).json({ success: true, message: 'Product deleted successfully' });
     } catch (err) {
-        res.status(500).json({ success: false, error: err });
+        next(err)
     }
 }

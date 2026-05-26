@@ -11,17 +11,18 @@ Content-Type: application/json
 {
     "name": "PCX",
     "price": 6000,
-    "quantity": 1
+    "quantity": 1,
+
 
 }
 ###PUT
-PUT  http://localhost:3000/api/v1/products/6a15318f0d0bdac9c62b8a9c
+PUT  http://localhost:3000/api/v1/products/6a15317b86da68c3d4f2dce2
 Content-Type: application/json
 
 {
     "name": "Vegeta",
     "price": 9000,
-    "quantity": 1
+    "quantity": 1,
 
 }
 
