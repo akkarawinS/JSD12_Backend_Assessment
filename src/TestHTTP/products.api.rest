@@ -2,15 +2,15 @@ GET http://localhost:3000/products
 
 
 ### GET BY ID
-GET http://localhost:3000/products/22
+GET http://localhost:3000/products/6a155757455822234eda5476
 
 ###POST
 POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "Keyboard",
-  "price": 49.99,
+  "name": "Logitech-G pro-X",
+  "price": 500,
   "quantity": 1
 }
 
@@ -26,4 +26,4 @@ Content-Type: application/json
 }
 
 ###Del
-DELETE   http://localhost:3000/products/6a153c6023d16c538ea02ec7
+DELETE   http://localhost:3000/products/6a155757455822234eda5476
