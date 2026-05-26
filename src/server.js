@@ -1,5 +1,5 @@
 import express from 'express'
-import { router as apiRoutes} from './routes/index.js'
+import { router as apiRoutes} from './routes/products.routes.js'
 import {connectDB} from './config/mongoDB.js'
 import { mw } from './middlewares/mw.js'
 
@@ -8,7 +8,7 @@ const port = 3000
 
 app.use(express.json())
 
-app.use('/api', apiRoutes);
+app.use('/', apiRoutes);
 
 
 app.use(mw);

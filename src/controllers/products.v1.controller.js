@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import { Product } from '../modules/products/products.model.js'
+import { Product } from '../models/Product.js'
 
 const pd = (doc) => {
     const product = doc.toObject();
@@ -16,16 +16,13 @@ export const getProducts = async (req, res, next) => {
 }
 //Return a single product by ID
 export const getProductsById = async (req, res, next) => {
+    const productmeeyuujing = mongoose.isValidObjectId(req.params.id);
     try {
-        if (!mongoose.isValidObjectId(req.params.id)) {
+        if (!productmeeyuujing) {
             return res.status(404).json({ success: false, message: 'Product not found' });
         }
 
         const product = await Product.findById(req.params.id);
-
-        if (!product) {
-            return res.status(404).json({ success: false, message: 'Product not found' });
-        }
 
         return res.status(200).json({ success: true, data: product });
     } catch (err) {
@@ -52,6 +49,10 @@ export const addProducts = async (req, res, next) => {
 //Update an existing product
 
 export const updateProducts = async (req, res, next) => {
+    if (!mongoose.isValidObjectId(req.params.id)) {
+        return res.status(404).json({ success: false, error: "Product not found" });
+    }
+
     const { name, price, quantity } = req.body || {};
     const update = {};
 
@@ -67,7 +68,7 @@ export const updateProducts = async (req, res, next) => {
     }
     try {
         const doc = await Product.findByIdAndUpdate(req.params.id, update, {
-            returnDocument: "after",
+            new: true,
             runValidators: true,
         });
 
