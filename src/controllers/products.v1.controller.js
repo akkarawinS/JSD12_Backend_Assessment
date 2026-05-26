@@ -8,10 +8,40 @@ const pd = (doc) => {
 //Return all products
 export const getProducts = async (req, res, next) => {
     try {
-        const products = await Product.find();
-        return res.status(200).json({ success: true, data: products });
+        const { search, minPrice, maxPrice } = req.query;
+
+        const filter = {};
+
+        if (search) {
+            filter.name = { $regex: search, $options: 'i' };
+        }
+
+        if (minPrice !== undefined || maxPrice !== undefined) {
+            filter.price = {};
+            if (minPrice !== undefined) {
+                const min = Number(minPrice);
+                if (Number.isNaN(min)) {
+                    return res.status(400).json({ success: false, error: 'minPrice must be a number' });
+                }
+                filter.price.$gte = min;
+            }
+            if (maxPrice !== undefined) {
+                const max = Number(maxPrice);
+                if (Number.isNaN(max)) {
+                    return res.status(400).json({ success: false, error: 'maxPrice must be a number' });
+                }
+                filter.price.$lte = max;
+            }
+        }
+
+        const products = await Product.find(filter);
+
+        const total = await Product.countDocuments(filter);
+
+        return res.status(200).json({ success: true, data: products, total });
     } catch (err) {
         next(err);
+
     }
 }
 //Return a single product by ID
