@@ -3,7 +3,9 @@
 ## Submission Links
 
 **Loom Video (must be set to public — anyone with the link):**
-[paste your Loom video URL here]
+มี2 url นะครับอันแรก อัดไว้ได้ 2:41 นาทีแล้ว ไมค์ผมหลุด Loom มันเลยตัดเอง
+part1 : https://www.loom.com/share/448fc0d3ea494963a96a103a29714d7a
+part2 : https://www.loom.com/share/f2ef3c3db6ab4d9fbb222a26ce9c785d
 
 ---
 

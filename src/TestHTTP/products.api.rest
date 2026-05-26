@@ -2,28 +2,28 @@ GET http://localhost:3000/products
 
 
 ### GET BY ID
-GET http://localhost:3000/products/6a155757455822234eda5476
+GET http://localhost:3000/products/6a1532ea0d0bdac9c62b8a9d
 
 ###POST
 POST http://localhost:3000/products
 Content-Type: application/json
 
 {
-  "name": "Logitech-G pro-X",
-  "price": 500,
-  "quantity": 1
+  "name": "Test Product",
+  "price": 50550,
+  "quantity": 100
 }
 
 ###PUT
-PUT  http://localhost:3000/products/6a15317b86da68c3d4f2dce2
+PUT  http://localhost:3000/products/6a156b4e79593279ddd1e29d
 Content-Type: application/json
 
 {
-    "name": "test",
+    "name": "Motorcycle2",
     "price": 1000,
     "quantity": 1
 
 }
 
 ###Del
-DELETE   http://localhost:3000/products/6a155757455822234eda5476
+DELETE   http://localhost:3000/products/6a156b4e79593279ddd1e29d
