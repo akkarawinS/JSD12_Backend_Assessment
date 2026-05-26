@@ -2,9 +2,9 @@
   "name": "backend_assessment",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
-    "dev": "node --env-file=.env --watch src/server.js"
+    "dev": "node --env-file=.env --watch src/index.js"
   },
   "keywords": [],
   "author": "",

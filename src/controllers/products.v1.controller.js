@@ -46,13 +46,18 @@ export const getProducts = async (req, res, next) => {
 }
 //Return a single product by ID
 export const getProductsById = async (req, res, next) => {
-    const productmeeyuujing = mongoose.isValidObjectId(req.params.id);
     try {
+        const productmeeyuujing = mongoose.isValidObjectId(req.params.id);
+
         if (!productmeeyuujing) {
             return res.status(404).json({ success: false, message: 'Product not found' });
         }
 
         const product = await Product.findById(req.params.id);
+
+        if (!product) {
+            return res.status(404).json({ success: false, message: 'Product not found' });
+        }
 
         return res.status(200).json({ success: true, data: product });
     } catch (err) {
