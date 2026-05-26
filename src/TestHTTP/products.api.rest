@@ -1,0 +1,29 @@
+GET http://localhost:3000/api/v1/products
+
+
+###
+GET http://localhost:3000/api/v1/products/6a15317b86da68c3d4f2dce2
+
+###POST
+POST http://localhost:3000/api/v1/products
+Content-Type: application/json
+
+{
+    "name": "PCX",
+    "price": 6000,
+    "quantity": 1
+
+}
+###PUT
+PUT  http://localhost:3000/api/v1/products/6a15318f0d0bdac9c62b8a9c
+Content-Type: application/json
+
+{
+    "name": "Vegeta",
+    "price": 9000,
+    "quantity": 1
+
+}
+
+###Del
+DELETE   http://localhost:3000/api/v1/products/6a1535bf37fa6d0d53438db2
